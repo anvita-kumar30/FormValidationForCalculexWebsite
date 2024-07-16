@@ -118,11 +118,17 @@ form .category label .dot {
   transition: all 0.3s ease;
 }
 
+#dot-1 ~ .category label .one,
+#dot-2 ~ .category label .two,
+#dot-3 ~ .category label .three {
+    background-color: white;
+}
+
 #dot-1:checked ~ .category label .one,
 #dot-2:checked ~ .category label .two,
 #dot-3:checked ~ .category label .three {
   background: #9b59b6;
-  border-color: #d9d9d9;
+  border-color: #ffffff;
 }
 
 form input[type="radio"] {
