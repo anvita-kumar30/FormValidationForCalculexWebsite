@@ -50,6 +50,46 @@ document.getElementById('registrationForm').addEventListener('submit', function(
         confirmPasswordError.textContent = '';
     }
 
+    // Birthdate validation
+    const birthdate = document.getElementById('birthdate').value;
+    const birthdateError = document.getElementById('birthdateError');
+    if (!birthdate) {
+        birthdateError.textContent = 'Please select your birthdate.';
+        isValid = false;
+    } else {
+        birthdateError.textContent = '';
+    }
+
+    // State validation
+    const state = document.getElementById('state').value;
+    const stateError = document.getElementById('stateError');
+    if (state === '') {
+        stateError.textContent = 'Please select your state.';
+        isValid = false;
+    } else {
+        stateError.textContent = '';
+    }
+
+    // City validation
+    const city = document.getElementById('city').value;
+    const cityError = document.getElementById('cityError');
+    if (!city) {
+        cityError.textContent = 'Please enter your city.';
+        isValid = false;
+    } else {
+        cityError.textContent = '';
+    }
+
+    // Gender validation
+    const gender = document.querySelector('input[name="gender"]:checked');
+    const genderError = document.getElementById('genderError');
+    if (!gender) {
+        genderError.textContent = 'Please select your gender.';
+        isValid = false;
+    } else {
+        genderError.textContent = '';
+    }
+
     if (!isValid) {
         event.preventDefault();
     }
