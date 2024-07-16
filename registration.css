@@ -16,25 +16,25 @@ body {
   background: linear-gradient(135deg, #71b7e6, #9b59b6);
 }
 
-.container {
-    background-image: url(hotel.jpg);
-    background-size: cover;
-    background-blend-mode: overlay;
-    background-color: rgba(0, 0, 0, 0.5);
-    /* min-height: 100vh;
-    max-width: 100vw; */
-    position: relative;
+body {
+    background-image: url(form-bg.jpg); /* Replace with your actual image path */
+    background-size: cover; /* Cover the entire background */
+    background-position: center center; /* Center the background image horizontally and vertically */
+    background-blend-mode: overlay; /* Blend mode for overlay effect */
+    background-color: rgba(0, 0, 0, 0.5); /* Overlay color with transparency */
+    position: relative; /* Ensure relative positioning */
 }
 
 .container {
   max-width: 700px;
   width: 100%;
-  background-color: #fff;
   padding: 25px 30px;
   border-radius: 5px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+  background-color: transparent; /* Set background color to transparent */
+    backdrop-filter: blur(30px); /* Apply backdrop blur effect */
 }
-
+  
 .container .title {
   font-size: 25px;
   font-weight: 500;
