@@ -90,6 +90,7 @@ document.getElementById('registrationForm').addEventListener('submit', function(
         genderError.textContent = '';
     }
 
+    // Prevent form submission if isValid is false
     if (!isValid) {
         event.preventDefault();
     }
