@@ -173,7 +173,8 @@ form .button input:hover {
 }
 
 .user-details .input-box select:invalid {
-    color: gray; /* Placeholder text color */
+    color: white; /* Placeholder text color */
+    background: white;
   }
   
   .user-details .input-box select option[value=""] {
