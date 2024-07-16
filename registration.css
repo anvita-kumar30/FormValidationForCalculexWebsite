@@ -58,14 +58,21 @@ body {
   margin: 20px 0 12px 0;
 }
 
-input[type="date"] {
-    color: rgb(118, 117, 117); /* Replace with your desired color */
-}
+/* input[type="date"] {
+    color: rgb(118, 117, 117); Replace with your desired color
+} */
 
 /* Cursor pointer for date picker icon */
 input[type="date"]::before {
     cursor: pointer;
+    color: rgb(118, 117, 117); /* Replace with your desired color */
 }
+
+/* Cursor pointer for select dropdown arrow */
+select#state::after {
+    cursor: pointer;
+}
+
 
 form .user-details .input-box {
   margin-bottom: 15px;
@@ -197,8 +204,9 @@ form .button input:hover {
 }
 
 .user-details .input-box select {
-    color: rgb(118, 117, 117); /* Placeholder text color */
+    /* color: rgb(118, 117, 117); Placeholder text color */
     background-color: white;
+    cursor: pointer;
 }
   
 .user-details .input-box select option[value=""] {
