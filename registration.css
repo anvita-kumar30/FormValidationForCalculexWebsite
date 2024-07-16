@@ -171,3 +171,12 @@ form .button input:hover {
     flex-direction: column;
   }
 }
+
+.user-details .input-box select:invalid {
+    color: gray; /* Placeholder text color */
+  }
+  
+  .user-details .input-box select option[value=""] {
+    display: none; /* Hide the placeholder option in the dropdown list */
+  }
+  
