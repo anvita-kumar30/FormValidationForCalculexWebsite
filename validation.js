@@ -143,7 +143,5 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
         }
-        // Redirect to index.html upon successful validation
-        window.location.href = 'index.html';
     });
 });
