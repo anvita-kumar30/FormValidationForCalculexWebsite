@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const email = document.getElementById('email').value;
                 const emailError = document.getElementById('emailError');
                 if (!email.includes('@')) {
-                    emailError.textContent = 'Please enter a valid email address with an "@" character.';
+                    emailError.textContent = 'Please enter a valid email address';
                     isValid = false;
                 } else {
                     emailError.textContent = '';
