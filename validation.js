@@ -2,15 +2,23 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('registrationForm').addEventListener('submit', function(event) {
         let isValid = true;
 
+        // Clear previous error messages
+        document.getElementById('nameError').textContent = '';
+        document.getElementById('emailError').textContent = '';
+        document.getElementById('phoneError').textContent = '';
+        document.getElementById('passwordError').textContent = '';
+        document.getElementById('confirmPasswordError').textContent = '';
+        document.getElementById('birthdateError').textContent = '';
+        document.getElementById('stateError').textContent = '';
+        document.getElementById('cityError').textContent = '';
+        document.getElementById('genderError').textContent = '';
+
         // Full Name validation
         const fullName = document.getElementById('fullName').value;
         const nameError = document.getElementById('nameError');
         if (fullName.length < 5) {
             nameError.textContent = 'Name must be at least 5 characters long.';
             isValid = false;
-            event.preventDefault();
-        } else {
-            nameError.textContent = '';
         }
 
         // Email validation
@@ -19,9 +27,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!email.includes('@')) {
             emailError.textContent = 'Enter a valid email.';
             isValid = false;
-            event.preventDefault();
-        } else {
-            emailError.textContent = '';
         }
 
         // Phone Number validation
@@ -30,9 +35,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (phone.length !== 10 || phone === '123456789') {
             phoneError.textContent = 'Phone number must be a 10-digit number and cannot be 123456789.';
             isValid = false;
-            event.preventDefault();
-        } else {
-            phoneError.textContent = '';
         }
 
         // Password validation
@@ -43,17 +45,11 @@ document.addEventListener('DOMContentLoaded', function() {
         if (password.length < 8 || password === 'password' || password === fullName) {
             passwordError.textContent = 'Password must be at least 8 characters long and cannot be "password" or your name.';
             isValid = false;
-            event.preventDefault();
-        } else {
-            passwordError.textContent = '';
         }
 
         if (password !== confirmPassword) {
             confirmPasswordError.textContent = 'Passwords do not match.';
             isValid = false;
-            event.preventDefault();
-        } else {
-            confirmPasswordError.textContent = '';
         }
 
         // Birthdate validation
@@ -62,9 +58,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!birthdate) {
             birthdateError.textContent = 'Please select your birthdate.';
             isValid = false;
-            event.preventDefault();
-        } else {
-            birthdateError.textContent = '';
         }
 
         // State validation
@@ -73,9 +66,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (state === '') {
             stateError.textContent = 'Please select your state.';
             isValid = false;
-            event.preventDefault();
-        } else {
-            stateError.textContent = '';
         }
 
         // City validation
@@ -84,9 +74,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!city) {
             cityError.textContent = 'Please enter your city.';
             isValid = false;
-            event.preventDefault();
-        } else {
-            cityError.textContent = '';
         }
 
         // Gender validation
@@ -95,13 +82,10 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!gender) {
             genderError.textContent = 'Please select your gender.';
             isValid = false;
-            event.preventDefault();
-        } else {
-            genderError.textContent = '';
         }
 
         // Prevent form submission if isValid is false
-        if (isValid == false) {
+        if (!isValid) {
             event.preventDefault();
         }
     });
