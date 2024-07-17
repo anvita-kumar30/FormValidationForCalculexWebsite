@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const email = document.getElementById('email').value;
                 const emailError = document.getElementById('emailError');
                 if (!email.includes('@')) {
-                    emailError.textContent = 'Enter a valid email.';
+                    emailError.textContent = 'Please enter a valid email address with an "@" character.';
                     isValid = false;
                 } else {
                     emailError.textContent = '';
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const passwordValue = document.getElementById('password').value;
                 const confirmPasswordError = document.getElementById('confirmPasswordError');
                 if (passwordValue !== confirmPassword) {
-                    confirmPasswordError.textContent = 'Passwords do not match.';
+                    confirmPasswordError.textContent = 'Please ensure the passwords match.';
                     isValid = false;
                 } else {
                     confirmPasswordError.textContent = '';
