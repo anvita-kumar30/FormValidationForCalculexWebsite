@@ -13,6 +13,17 @@ document.addEventListener('DOMContentLoaded', function() {
             nameError.textContent = '';
         }
 
+        // Birthdate validation
+        const birthdate = document.getElementById('birthdate').value;
+        const birthdateError = document.getElementById('birthdateError');
+        if (!birthdate) {
+            birthdateError.textContent = 'Please select your birthdate.';
+            isValid = false;
+            event.preventDefault();
+        } else {
+            birthdateError.textContent = '';
+        }
+        
         // Email validation
         const email = document.getElementById('email').value;
         const emailError = document.getElementById('emailError');
@@ -54,17 +65,6 @@ document.addEventListener('DOMContentLoaded', function() {
             event.preventDefault();
         } else {
             confirmPasswordError.textContent = '';
-        }
-
-        // Birthdate validation
-        const birthdate = document.getElementById('birthdate').value;
-        const birthdateError = document.getElementById('birthdateError');
-        if (!birthdate) {
-            birthdateError.textContent = 'Please select your birthdate.';
-            isValid = false;
-            event.preventDefault();
-        } else {
-            birthdateError.textContent = '';
         }
 
         // State validation
