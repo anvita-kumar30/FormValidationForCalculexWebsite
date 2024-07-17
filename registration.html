@@ -39,11 +39,11 @@
     <div class="container">
         <div class="title">Registration Form</div>
         <div class="content">
-            <form id="registrationForm" onSubmit="return validateForm(event)">
+            <form id="registrationForm" onSubmit="return validateForm(event)">  <!--JS Event Listener : onSubmit on form tag-->
                 <div class="user-details">
                     <div class="input-box">
                         <span class="details">Full Name</span>
-                        <input type="text" id="fullName" placeholder="Enter your name" required onChange="handleChange(event)">
+                        <input type="text" id="fullName" placeholder="Enter your name" required onChange="handleChange(event)"> <!--JS Event Listener : onChange on every input tag-->
                         <span class="error-message" id="nameError"></span>
                     </div>
                     <div class="input-box">
