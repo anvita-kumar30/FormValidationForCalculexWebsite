@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculex Website</title>
+    <meta name="description" content="Calculex: Your ultimate calculation companion. Perform accurate and efficient calculations effortlessly with our versatile and user-friendly tool.">
+    <meta name="keywords" content="calculator, calculations, math tool, arithmetic, algebra, math solutions, Calculex">
+
+    <link href="assets/img/logo.png" rel="icon" type="image/png">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet">
+
+</head>
+<style>
+    body {
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        user-select: none;
+        /* background: #0a273f; */
+        background-image: url(assets/img/cal-bg.jpg);
+    }
+
+    .container {
+        margin-left: 48.8em;
+        margin-top: 5.7em;
+        margin-right: 48.8em;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 13px 13px 20px #102f4d,
+            -13px -13px 20px #102f4d;
+    }
+
+    .content {
+        width: 100%;
+        margin-top: 1.7em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .display {
+        margin-left: 0.2em;
+    }
+
+    .btns {
+        margin-left: 1.8em;
+    }
+
+    .btn {
+        background: white;
+    }
+
+    .row button {
+        width: 60px;
+        height: 80px;
+        font-size: 16px;
+        border: none;
+        outline: none;
+        margin: 5px;
+        border-radius: 4px;
+        transition: .1s;
+        box-shadow: 5px 5px 8px #ddddde20,
+            -5px -5px 8px #153e68;
+        background: #ffffff;
+    }
+
+    .row button:hover {
+        box-shadow: inset 5px 5px 8px rgb(220, 220, 220),
+            inset -5px -5px 8px #fff;
+        background: #fff !important;
+    }
+
+    .display #screen {
+        margin-bottom: .5em;
+        width: 13em;
+        height: 70px;
+        font-size: 35px;
+        outline: none;
+        border: none;
+        text-align: right;
+        padding-right: .5em;
+        background: #ecf0f3;
+        border-radius: 6px;
+        box-shadow: inset 8px 8px 8px #cbced1,
+            inset -8px -8px 8px #ffffff;
+    }
+
+    #eval {
+        background: #e6c71b !important;
+        color: #fff;
+        box-shadow: 5px 5px 8px #06091820,
+            -5px -5px 8px #1b4f82;
+    }
+
+    #eval:hover {
+        box-shadow: inset 5px 5px 8px rgba(16, 16, 16, .1),
+            inset -5px -5px 8px #e6c71b !important;
+    }
+
+    #ac {
+        background: #33cc33 !important;
+        color: #fff;
+    }
+
+    #ac:hover {
+        box-shadow: inset 5px 5px 8px #2eb82e,
+            inset -5px -5px 8px #33cc33 !important;
+    }
+
+    #ce {
+        background: #ff3347 !important;
+        color: #fff;
+    }
+
+    #ce:hover {
+        box-shadow: inset 5px 5px 8px #ff3347,
+            inset -5px -5px 8px #ff3347 !important;
+    }
+
+
+</style>
+
+<body class="index-page">
+
+    <header id="header" class="header d-flex align-items-center fixed-top">
+      <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+  
+        <a href="index.html" class="logo d-flex align-items-center">
+          <img src="assets/img/logo.png" alt="">
+          <h1 class="calculex">Calculex</h1>
+        </a>
+  
+        <nav id="navmenu" class="navmenu">
+            <ul>
+                <li><a href="index.html">Home<br></a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="calculex.html" class="active">Calculator</a></li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+  
+      </div>
+    </header>
+  
+    <div class="container">
+        <div class="display">
+            <input id="screen" type="text" placeholder="0">
+        </div>
+
+        <div class="btns">
+            <div class="row">
+                <button class="btn">(</button>
+                <button class="btn">)</button>
+                <button id="ce" onclick="backspc()">CE</button> <!-- Clear Entry Button -->
+                <button onclick="pow()">x <span style="position: relative; bottom: .4em; right: .1em;">2</span>
+                </button>
+                <button class="btn">%</button> <!-- Modulo Operation: example - 27 % 4 = 3 -->
+                <button id="ac" onclick="screen.value=''">AC</button> <!-- All Clear Button -->
+            </div>
+
+            <div class="row">
+                <button onclick="sin()">sin</button>
+                <button onclick="pi()">π</button>
+                <button class="btn">7</button>
+                <button class="btn">8</button>
+                <button class="btn">9</button>
+                <button class="btn">÷</button> <!-- Division operation -->
+            </div>
+
+            <div class="row">
+                <button onclick="cos()">cos</button>
+                <button onclick="log()">log</button>
+                <button class="btn">4</button>
+                <button class="btn">5</button>
+                <button class="btn">6</button>
+                <button class="btn">×</button> <!-- Multiplication Operation -->
+            </div>
+
+            <div class="row">
+                <button onclick="tan()">tan</button>
+                <button onclick="sqrt()">√</button>
+                <button class="btn">1</button>
+                <button class="btn">2</button>
+                <button class="btn">3</button>
+                <button class="btn">-</button> <!-- Subtraction Operation -->
+            </div>
+
+            <div class="row">
+                <button onclick="e()">e</button>
+                <button onclick="fact()">x!</button>
+                <button class="btn">0</button>
+                <button class="btn">.</button>
+                <button id="eval" onclick="screen.value=eval(screen.value)">=</button> <!-- Equals Button -->
+                <button class="btn">+</button> <!-- Addition Operation -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  
+    <!-- Preloader -->
+    <div id="preloader"></div>
+  
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  
+    <!-- Main JS File -->
+    <script src="assets/js/main.js"></script>
+</body>
+  
+  <script>
+    var screen = document.querySelector('#screen');
+    var btn = document.querySelectorAll('.btn');
+
+    /*For getting the value of btn, we use for loop */
+    for (item of btn) {
+        item.addEventListener('click', (e) => {
+            btntext = e.target.innerText;
+
+            if (btntext == '×') {
+                btntext = '*';
+            }
+
+            if (btntext == '÷') {
+                btntext = '/';
+            }
+            screen.value += btntext;
+        });
+    }
+
+    function sin() {
+        screen.value = Math.sin(screen.value);
+    }
+
+    function cos() {
+        screen.value = Math.cos(screen.value);
+    }
+
+    function tan() {
+        screen.value = Math.tan(screen.value);
+    }
+
+    function pow() {
+        screen.value = Math.pow(screen.value, 2);
+    }
+
+    function sqrt() {
+        screen.value = Math.sqrt(screen.value, 2);
+    }
+
+    function log() {
+        screen.value = Math.log(screen.value);
+    }
+
+    function pi() {
+        screen.value = 3.14159265359;
+    }
+
+    function e() {
+        screen.value = 2.71828182846;
+    }
+
+    function fact() {
+        var i, num, f;
+        f = 1
+        num = screen.value;
+        for (i = 1; i <= num; i++) {
+            f = f * i;
+        }
+
+        i = i - 1;
+
+        screen.value = f;
+    }
+
+    function backspc() {
+        screen.value = screen.value.substr(0, screen.value.length - 1);
+    }
+  </script>
+</html>
