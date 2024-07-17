@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'gender'
     ];
 
-    const redirectionUrl = 'index.html';
+    const redirectionUrl = 'home.html';
 
     function validateField(index) {
         let isValid = true;
@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 break;
             }
         }
-        // If all fields are valid, redirect to index.html
+        // If all fields are valid, redirect to home.html
         if (allValid) {
             window.location.href = redirectionUrl;
         }
