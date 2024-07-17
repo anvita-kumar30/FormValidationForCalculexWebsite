@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('registrationForm');
     const fields = [
         'fullName',
         'dob',
@@ -115,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return isValid;
     }
 
-    form.addEventListener('input', function(event) {
+    function handleChange(event) {
         const fieldIndex = fields.indexOf(event.target.id);
         if (validateField(fieldIndex)) {
             if (fieldIndex < fields.length - 1) {
@@ -136,10 +135,11 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
         document.querySelector('input[type="submit"]').disabled = !allValid;
-    });
+    }
 
-    form.addEventListener('submit', function(event) {
+    function validateForm(event) {
         event.preventDefault();
+
         let allValid = true;
         for (let i = 0; i < fields.length; i++) {
             if (!validateField(i)) {
@@ -147,9 +147,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 break;
             }
         }
+
         // If all fields are valid, redirect to home.html
         if (allValid) {
             window.location.href = redirectionUrl;
         }
-    });
+    }
 });
