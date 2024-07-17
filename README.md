@@ -20,7 +20,18 @@
 ![Screenshot 2024-07-17 205306](https://github.com/user-attachments/assets/51ad560c-989e-4b0e-9f0e-a5dde3d6e7ea)
 
 Conditions to be satisfied for successful registration are as follows:-
-1) 
+
+
+1)  Name must be at least 5 characters long.
+2)  Birthdate must be selected.
+3)  A valid Email ID must be entered and it should have "@" character in it.
+4)  Phone Number must be a 10-digit number and should not be "123456789".
+5)  Password must be at least 8 characters long and cannot be "password" or "name of the user".
+6)  Password and Confirm Password should match.
+7)  State must be selected from the drop-down.
+8)  City name must be entered.
+9)  Gender must be selected.
+
 
 ![Screenshot 2024-07-17 205527](https://github.com/user-attachments/assets/ac23f506-5816-43b0-8ccb-38126176ac12)
 
