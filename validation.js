@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('registrationForm').addEventListener('submit', function(event) {
+    const form = document.getElementById('registrationForm');
+
+    function validateField() {
         let isValid = true;
 
         // Clear previous error messages
@@ -84,9 +86,25 @@ document.addEventListener('DOMContentLoaded', function() {
             isValid = false;
         }
 
-        // Prevent form submission if isValid is false
-        if (!isValid) {
+        return isValid;
+    }
+
+    form.addEventListener('submit', function(event) {
+        if (!validateField()) {
             event.preventDefault();
         }
+    });
+
+    // Add input and change event listeners to form fields
+    document.getElementById('fullName').addEventListener('input', validateField);
+    document.getElementById('email').addEventListener('input', validateField);
+    document.getElementById('phone').addEventListener('input', validateField);
+    document.getElementById('password').addEventListener('input', validateField);
+    document.getElementById('confirmPassword').addEventListener('input', validateField);
+    document.getElementById('birthdate').addEventListener('change', validateField);
+    document.getElementById('state').addEventListener('change', validateField);
+    document.getElementById('city').addEventListener('input', validateField);
+    document.querySelectorAll('input[name="gender"]').forEach(function(radio) {
+        radio.addEventListener('change', validateField);
     });
 });
