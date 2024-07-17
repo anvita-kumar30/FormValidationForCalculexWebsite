@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
     ];
 
     const redirectionUrl = 'index.html';
-    
+
     function validateField(index) {
         let isValid = true;
 
@@ -139,11 +139,16 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        let allValid = true;
         for (let i = 0; i < fields.length; i++) {
             if (!validateField(i)) {
-                event.preventDefault();
-                return;
+                allValid = false;
+                break;
             }
+        }
+        if (allValid) {
+            window.location.href = redirectionUrl;
         }
     });
 });
