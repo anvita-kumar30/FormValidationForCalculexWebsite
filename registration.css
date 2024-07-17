@@ -168,7 +168,7 @@ form .button input:hover {
 }
 
 .error-message {
-  color: red;
+  color: rgb(239, 85, 85);
   font-size: 14px;
   margin-top: 5px;
   display: block;

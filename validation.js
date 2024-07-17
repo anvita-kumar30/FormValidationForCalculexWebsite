@@ -1,108 +1,147 @@
 document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('registrationForm').addEventListener('submit', function(event) {
+    const form = document.getElementById('registrationForm');
+    const fields = [
+        'fullName',
+        'dob',
+        'email',
+        'phone',
+        'password',
+        'confirmPassword',
+        'state',
+        'city',
+        'gender'
+    ];
+
+    function validateField(index) {
         let isValid = true;
 
-        // Full Name validation
-        const fullName = document.getElementById('fullName').value;
-        const nameError = document.getElementById('nameError');
-        if (fullName.length < 5) {
-            nameError.textContent = 'Name must be at least 5 characters long.';
-            isValid = false;
-            event.preventDefault();
-        } else {
-            nameError.textContent = '';
+        switch (index) {
+            case 0: // Full Name validation
+                const fullName = document.getElementById('fullName').value;
+                const nameError = document.getElementById('nameError');
+                if (fullName.length < 5) {
+                    nameError.textContent = 'Name must be at least 5 characters long.';
+                    isValid = false;
+                } else {
+                    nameError.textContent = '';
+                }
+                break;
+            case 1: // Birthdate validation
+                const birthdate = document.getElementById('dob').value;
+                const birthdateError = document.getElementById('birthdateError');
+                if (!birthdate) {
+                    birthdateError.textContent = 'Please select your birthdate.';
+                    isValid = false;
+                } else {
+                    birthdateError.textContent = '';
+                }
+                break;
+            case 2: // Email validation
+                const email = document.getElementById('email').value;
+                const emailError = document.getElementById('emailError');
+                if (!email.includes('@')) {
+                    emailError.textContent = 'Enter a valid email.';
+                    isValid = false;
+                } else {
+                    emailError.textContent = '';
+                }
+                break;
+            case 3: // Phone Number validation
+                const phone = document.getElementById('phone').value;
+                const phoneError = document.getElementById('phoneError');
+                if (phone.length !== 10 || phone === '123456789') {
+                    phoneError.textContent = 'Phone number must be a 10-digit number and cannot be 123456789.';
+                    isValid = false;
+                } else {
+                    phoneError.textContent = '';
+                }
+                break;
+            case 4: // Password validation
+                const password = document.getElementById('password').value;
+                const fullNameValue = document.getElementById('fullName').value;
+                const passwordError = document.getElementById('passwordError');
+                if (password.length < 8 || password === 'password' || password === fullNameValue) {
+                    passwordError.textContent = 'Password must be at least 8 characters long and cannot be "password" or your name.';
+                    isValid = false;
+                } else {
+                    passwordError.textContent = '';
+                }
+                break;
+            case 5: // Confirm Password validation
+                const confirmPassword = document.getElementById('confirmPassword').value;
+                const passwordValue = document.getElementById('password').value;
+                const confirmPasswordError = document.getElementById('confirmPasswordError');
+                if (passwordValue !== confirmPassword) {
+                    confirmPasswordError.textContent = 'Passwords do not match.';
+                    isValid = false;
+                } else {
+                    confirmPasswordError.textContent = '';
+                }
+                break;
+            case 6: // State validation
+                const state = document.getElementById('state').value;
+                const stateError = document.getElementById('stateError');
+                if (state === '') {
+                    stateError.textContent = 'Please select your state.';
+                    isValid = false;
+                } else {
+                    stateError.textContent = '';
+                }
+                break;
+            case 7: // City validation
+                const city = document.getElementById('city').value;
+                const cityError = document.getElementById('cityError');
+                if (!city) {
+                    cityError.textContent = 'Please enter your city.';
+                    isValid = false;
+                } else {
+                    cityError.textContent = '';
+                }
+                break;
+            case 8: // Gender validation
+                const gender = document.querySelector('input[name="gender"]:checked');
+                const genderError = document.getElementById('genderError');
+                if (!gender) {
+                    genderError.textContent = 'Please select your gender.';
+                    isValid = false;
+                } else {
+                    genderError.textContent = '';
+                }
+                break;
         }
 
-        // Birthdate validation
-        const birthdate = document.getElementById('birthdate').value;
-        const birthdateError = document.getElementById('birthdateError');
-        if (!birthdate) {
-            birthdateError.textContent = 'Please select your birthdate.';
-            isValid = false;
-            event.preventDefault();
+        return isValid;
+    }
+
+    form.addEventListener('input', function(event) {
+        const fieldIndex = fields.indexOf(event.target.id);
+        if (validateField(fieldIndex)) {
+            if (fieldIndex < fields.length - 1) {
+                document.getElementById(fields[fieldIndex + 1]).disabled = false;
+            }
         } else {
-            birthdateError.textContent = '';
-        }
-        
-        // Email validation
-        const email = document.getElementById('email').value;
-        const emailError = document.getElementById('emailError');
-        if (!email.includes('@')) {
-            emailError.textContent = 'Enter a valid email.';
-            isValid = false;
-            event.preventDefault();
-        } else {
-            emailError.textContent = '';
+            for (let i = fieldIndex + 1; i < fields.length; i++) {
+                document.getElementById(fields[i]).disabled = true;
+            }
         }
 
-        // Phone Number validation
-        const phone = document.getElementById('phone').value;
-        const phoneError = document.getElementById('phoneError');
-        if (phone.length !== 10 || phone === '123456789') {
-            phoneError.textContent = 'Phone number must be a 10-digit number and cannot be 123456789.';
-            isValid = false;
-            event.preventDefault();
-        } else {
-            phoneError.textContent = '';
+        // Enable the submit button if all fields are valid
+        let allValid = true;
+        for (let i = 0; i < fields.length; i++) {
+            if (!validateField(i)) {
+                allValid = false;
+                break;
+            }
         }
+        document.querySelector('input[type="submit"]').disabled = !allValid;
+    });
 
-        // Password validation
-        const password = document.getElementById('password').value;
-        const confirmPassword = document.getElementById('confirmPassword').value;
-        const passwordError = document.getElementById('passwordError');
-        const confirmPasswordError = document.getElementById('confirmPasswordError');
-        if (password.length < 8 || password === 'password' || password === fullName) {
-            passwordError.textContent = 'Password must be at least 8 characters long and cannot be "password" or your name.';
-            isValid = false;
-            event.preventDefault();
-        } else {
-            passwordError.textContent = '';
-        }
-
-        if (password !== confirmPassword) {
-            confirmPasswordError.textContent = 'Passwords do not match.';
-            isValid = false;
-            event.preventDefault();
-        } else {
-            confirmPasswordError.textContent = '';
-        }
-
-        // State validation
-        const state = document.getElementById('state').value;
-        const stateError = document.getElementById('stateError');
-        if (state === '') {
-            stateError.textContent = 'Please select your state.';
-            isValid = false;
-            event.preventDefault();
-        } else {
-            stateError.textContent = '';
-        }
-
-        // City validation
-        const city = document.getElementById('city').value;
-        const cityError = document.getElementById('cityError');
-        if (!city) {
-            cityError.textContent = 'Please enter your city.';
-            isValid = false;
-            event.preventDefault();
-        } else {
-            cityError.textContent = '';
-        }
-
-        // Gender validation
-        const gender = document.querySelector('input[name="gender"]:checked');
-        const genderError = document.getElementById('genderError');
-        if (!gender) {
-            genderError.textContent = 'Please select your gender.';
-            isValid = false;
-            event.preventDefault();
-        } else {
-            genderError.textContent = '';
-        }
-
-        // Prevent form submission if isValid is false
-        if (isValid == false) {
-            event.preventDefault();
+    form.addEventListener('submit', function(event) {
+        for (let i = 0; i < fields.length; i++) {
+            if (!validateField(i)) {
+                event.preventDefault();
+                return;
+            }
         }
     });
 });
