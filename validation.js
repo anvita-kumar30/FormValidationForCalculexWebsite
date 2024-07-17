@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', function() {
         'gender'
     ];
 
+    const redirectionUrl = 'index.html';
+    
     function validateField(index) {
         let isValid = true;
 
