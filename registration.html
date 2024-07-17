@@ -108,10 +108,12 @@
                             <option value="Uttarakhand">Uttarakhand</option>
                             <option value="West Bengal">West Bengal</option>
                         </select>
+                        <span class="error-message" id="stateError"></span>
                     </div>
                     <div class="input-box">
                         <span class="details">City</span>
                         <input type="text" id="city" placeholder="Enter your city" required>
+                        <span class="error-message" id="cityError"></span>
                     </div>
                 </div>
                 <div class="gender-details">
@@ -133,6 +135,7 @@
                             <span class="gender">Prefer not to say</span>
                         </label>
                     </div>
+                    <span class="error-message" id="genderError"></span>
                 </div>
                 <div class="button">
                     <input type="submit" value="Register">
