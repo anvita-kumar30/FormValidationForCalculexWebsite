@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const phone = document.getElementById('phone').value;
                 const phoneError = document.getElementById('phoneError');
                 if (phone.length !== 10 || phone === '123456789') {
-                    phoneError.textContent = 'Phone number must be a 10-digit number and cannot be 123456789.';
+                    phoneError.textContent = 'Phone number must be a 10-digit number.';
                     isValid = false;
                 } else {
                     phoneError.textContent = '';
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const fullNameValue = document.getElementById('fullName').value;
                 const passwordError = document.getElementById('passwordError');
                 if (password.length < 8 || password === 'password' || password === fullNameValue) {
-                    passwordError.textContent = 'Password must be at least 8 characters long and cannot be "password" or your name.';
+                    passwordError.textContent = 'Password must be at least 8 characters.';
                     isValid = false;
                 } else {
                     passwordError.textContent = '';
