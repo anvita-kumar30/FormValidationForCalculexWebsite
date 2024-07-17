@@ -147,6 +147,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 break;
             }
         }
+        // If all fields are valid, redirect to index.html
         if (allValid) {
             window.location.href = redirectionUrl;
         }
