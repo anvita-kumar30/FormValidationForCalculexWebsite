@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (fullName.length < 5) {
             nameError.textContent = 'Name must be at least 5 characters long.';
             isValid = false;
+            event.preventDefault();
         } else {
             nameError.textContent = '';
         }
@@ -18,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!email.includes('@')) {
             emailError.textContent = 'Enter a valid email.';
             isValid = false;
+            event.preventDefault();
         } else {
             emailError.textContent = '';
         }
@@ -28,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (phone.length !== 10 || phone === '123456789') {
             phoneError.textContent = 'Phone number must be a 10-digit number and cannot be 123456789.';
             isValid = false;
+            event.preventDefault();
         } else {
             phoneError.textContent = '';
         }
@@ -40,6 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (password.length < 8 || password === 'password' || password === fullName) {
             passwordError.textContent = 'Password must be at least 8 characters long and cannot be "password" or your name.';
             isValid = false;
+            event.preventDefault();
         } else {
             passwordError.textContent = '';
         }
@@ -47,6 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (password !== confirmPassword) {
             confirmPasswordError.textContent = 'Passwords do not match.';
             isValid = false;
+            event.preventDefault();
         } else {
             confirmPasswordError.textContent = '';
         }
@@ -57,6 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!birthdate) {
             birthdateError.textContent = 'Please select your birthdate.';
             isValid = false;
+            event.preventDefault();
         } else {
             birthdateError.textContent = '';
         }
@@ -67,6 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (state === '') {
             stateError.textContent = 'Please select your state.';
             isValid = false;
+            event.preventDefault();
         } else {
             stateError.textContent = '';
         }
@@ -77,6 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!city) {
             cityError.textContent = 'Please enter your city.';
             isValid = false;
+            event.preventDefault();
         } else {
             cityError.textContent = '';
         }
@@ -87,12 +95,13 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!gender) {
             genderError.textContent = 'Please select your gender.';
             isValid = false;
+            event.preventDefault();
         } else {
             genderError.textContent = '';
         }
 
         // Prevent form submission if isValid is false
-        if (!isValid) {
+        if (isValid == false) {
             event.preventDefault();
         }
     });
