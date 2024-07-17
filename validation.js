@@ -144,12 +144,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
         // Redirect to index.html upon successful validation
-        // window.location.href = '../../index.html';
-        if (allValid) {
-            window.location.href = '../../index.html';
-        } else {
-            // Prevent form submission if fields are not valid
-            event.preventDefault();
-        }
+        window.location.href = 'index.html';
     });
 });
