@@ -144,6 +144,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
         // Redirect to index.html upon successful validation
-        window.location.href = '../index.html';
+        window.location.href = '../../index.html';
     });
 });
