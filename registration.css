@@ -16,7 +16,7 @@ body {
 }
 
 body {
-    background-image: url(form-bg.jpg); /* Replace with your actual image path */
+    background-image: url(assets/img/form-bg.jpg); /* Replace with your actual image path */
     background-size: cover; /* Cover the entire background */
     background-position: left center; /* Center the background image horizontally and vertically */
     background-blend-mode: overlay; /* Blend mode for overlay effect */
