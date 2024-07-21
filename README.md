@@ -1,5 +1,7 @@
 # Form Validation For Calculex Website
 
+**Project Description**:- This project involves a sign-up page with a form validation process designed for the Calculex Website. Ensures that users provide valid and complete information before submission. The form validation improves user experience by checking for errors and providing instant feedback if incorrect information is entered.
+
 
 **Landing Page:**
 
